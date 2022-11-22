@@ -4,7 +4,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-from setuptools import Extension, setup
+from setuptools import Extension, setup, find_packages
 from setuptools.command.build_ext import build_ext
 
 # Convert distutils Windows platform specifiers to CMake -A arguments
@@ -133,6 +133,7 @@ setup(
     author_email="email@gmail.com",
     description="Fire spread simulation",
     long_description="",
+    packages=find_packages('src'),
     package_dir={'':'src'},
     ext_modules=[CMakeExtension("forefire")],
     cmdclass={"build_ext": CMakeBuild},

@@ -23,7 +23,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 US
 
 #include "Command.h"
 #include "FFArrays.h"
-#include "include/Futils.h"
+#include "Futils.h"
 
 using namespace std;
 

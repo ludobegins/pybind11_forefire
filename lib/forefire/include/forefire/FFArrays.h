@@ -21,7 +21,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 US
 #ifndef FFARRAYS_H_
 #define FFARRAYS_H_
 
-#include "include/Futils.h"
+#include "Futils.h"
 
 using namespace std;
 

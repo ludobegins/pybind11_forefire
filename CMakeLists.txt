@@ -4,15 +4,20 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 project(forefire)
 
-add_library(PLibForeFire STATIC "lib/forefire/firefront/swig/PLibForeFire.cpp")
+add_library(PLibForeFire STATIC "lib/forefire/include/forefire/PLibForeFire.cpp")
+
 set_target_properties(PLibForeFire PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 set(SOURCE_DIR "src/forefire")
 
 include_directories(${SOURCE_DIR})
 
-target_include_directories(PLibForeFire PRIVATE "lib/forefire/firefront/src")
+target_include_directories(PLibForeFire PUBLIC "lib/forefire/include/forefire")
 
 add_subdirectory(lib/pybind11)
-pybind11_add_module(forefire "${SOURCE_DIR}/forefire_binder.cpp")
-target_link_libraries(forefire PRIVATE PLibForeFire)
+
+set(SOURCES "lib/forefire/include/forefire/PLibForeFire.cpp")
+
+pybind11_add_module(forefire ${SOURCES} "${SOURCE_DIR}/forefire_binder.cpp")
+
+target_link_libraries(forefire PUBLIC PLibForeFire)

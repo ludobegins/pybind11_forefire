@@ -1,3 +1,5 @@
 build
 forefire.egg-info
 *.whl
+dist
+lib
