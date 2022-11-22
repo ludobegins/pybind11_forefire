@@ -1,9 +1,18 @@
 cmake_minimum_required(VERSION 3.4...3.18)
-project(cmake_example)
 
-add_library(mymath STATIC src/mymath.cpp)
-set_target_properties(mymath PROPERTIES POSITION_INDEPENDENT_CODE ON)
+set(CMAKE_VERBOSE_MAKEFILE ON)
 
-add_subdirectory(extern/pybind11)
-pybind11_add_module(cmake_example src/main.cpp)
-target_link_libraries(cmake_example PRIVATE mymath)
+project(forefire)
+
+add_library(PLibForeFire STATIC "lib/forefire/firefront/swig/PLibForeFire.cpp")
+set_target_properties(PLibForeFire PROPERTIES POSITION_INDEPENDENT_CODE ON)
+
+set(SOURCE_DIR "src/forefire")
+
+include_directories(${SOURCE_DIR})
+
+target_include_directories(PLibForeFire PRIVATE "lib/forefire/firefront/src")
+
+add_subdirectory(lib/pybind11)
+pybind11_add_module(forefire "${SOURCE_DIR}/forefire_binder.cpp")
+target_link_libraries(forefire PRIVATE PLibForeFire)

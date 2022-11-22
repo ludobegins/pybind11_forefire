@@ -127,13 +127,14 @@ class CMakeBuild(build_ext):
 # The information here can also be placed in setup.cfg - better separation of
 # logic and declaration, and simpler if you include description/version in a file.
 setup(
-    name="cmake_example",
-    version="0.0.1",
-    author="Dean Moldovan",
-    author_email="dean0x7d@gmail.com",
-    description="A test project using pybind11 and CMake",
+    name="forefire",
+    version="1.1.0",
+    author="Filippi",
+    author_email="email@gmail.com",
+    description="Fire spread simulation",
     long_description="",
-    ext_modules=[CMakeExtension("cmake_example")],
+    package_dir={'':'src'},
+    ext_modules=[CMakeExtension("forefire")],
     cmdclass={"build_ext": CMakeBuild},
     zip_safe=False,
     extras_require={"test": ["pytest>=6.0"]},
