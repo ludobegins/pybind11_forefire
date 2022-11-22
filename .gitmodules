@@ -2,3 +2,6 @@
 	path = lib/pybind11
 	url = ../../pybind/pybind11
 	branch = stable
+[submodule "lib/forefire/firefront"]
+	path = lib/forefire/firefront
+	url = https://github.com/forefireAPI/firefront
